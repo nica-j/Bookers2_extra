@@ -5,6 +5,7 @@ class FavoritesController < ApplicationController
     favorite.save
     redirect_back(fallback_location: root_path)
     # 上のroot_pathの部分は処理に失敗した場合のダイレクト先を指示しているので、好きに任意のpathを指定できる
+    # redirect_to request.referer　これでも直前に見てたページを表示できるよ
   end 
   
   def destroy
