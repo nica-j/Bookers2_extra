@@ -1,9 +1,9 @@
 class BooksController < ApplicationController
-  before_action :ensure_correct_user, only: [:update, :edit]
+  before_action :ensure_correct_user, only: [:update, :edit, :destroy]
 
   def show
     @book = Book.find(params[:id])
-    @book_comments = BookComment.all
+    
   end
 
   def index

@@ -1,0 +1,20 @@
+ <table class='table'>
+        <% book.book_comments.each do |t| %>
+          <tr>
+            
+            <td>
+              <%= link_to user_path(t.user) do %>
+                <%= image_tag t.user.get_profile_image, size:"100x100" %><br>
+                <%=t.user.name %>
+              <% end %>
+            </td>
+            <td><%= t.comment %></td>
+            <td>
+              <% if t.user == current_user %>
+                <%= link_to 'Destroy', book_book_comment_path(book,t), method: :delete, class: "btn btn-sm btn-danger" %>
+                <!--ここのパス指定がわからない！！！-->
+              <% end %>
+            </td>
+          </tr>  
+        <% end %>
+      </table>
