@@ -9,4 +9,18 @@ class Book < ApplicationRecord
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
+  
+  #検索機能
+  def self.search_for(word, method)
+    if method == 'perfect'
+      Book.where(title: word)
+    elsif method == 'forward'
+      Book.where('title LIKE ?', word + '%')
+    elsif method == 'backward'
+      Book.where('title LIKE ?', '%' + word)
+    else
+      Book.where('title LIKE ?', '%' + word + '%')
+    end
+  end
+  #LIKEの前の部分は参照するカラム名を入れる
 end
