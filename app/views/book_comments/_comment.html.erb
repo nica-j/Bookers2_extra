@@ -1,8 +1,4 @@
-<%= form_with model: [book, book_comment] do |f| %>
-  <div class="form-group">
-    <%= f.text_area :comment, placeholder: "コメントをここに", class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.submit "送信" %>
-  </div>
+<%= form_with model: [book, book_comment], local: false do |f| %>
+  <%= f.text_area :comment, placeholder: "コメントをここに", class: "form-control comment_textarea" %>
+  <%= f.submit "送信" %>
 <% end %>

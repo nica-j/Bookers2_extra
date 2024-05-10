@@ -1,0 +1,4 @@
+$('#counter').html("<%= j(render 'book_comments/count', book: @comment.book) %>");
+$('#comment_index').html("<%= j(render 'book_comments/index', book: @comment.book) %>");
+<!--コメントフォームのテキストエリアの値を空にする-->
+$('.comment_textarea').val("")
